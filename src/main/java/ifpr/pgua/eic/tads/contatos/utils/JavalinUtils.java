@@ -27,14 +27,14 @@ public class JavalinUtils {
                 e.printStackTrace();
             }
             return null;
-        }, ".html");
+        }, ".html",".peb");
 
         
         Javalin app = Javalin.create(config->{
             config.requestLogger.http((ctx, ms) -> {
                 System.out.println(ctx.fullUrl());
             });
-            config.staticFiles.add("/public",Location.CLASSPATH);
+            config.staticFiles.add("public",Location.CLASSPATH);
         }).start(port);
         return app;
     }
